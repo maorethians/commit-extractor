@@ -1,0 +1,46 @@
+{
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "node_modules"
+  ],
+  // babel ignores "**/*.test.ts" in compile time
+  "compilerOptions": {
+    "resolveJsonModule": true,
+    "target": "esnext",
+    // babel should compile to our specific env
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "noEmit": true,
+    // babel should transform files
+    // enable type checking js files in the config directory
+    "allowJs": true,
+    "checkJs": true,
+    "baseUrl": ".",
+    "sourceMap": true,
+    /* Import typescript helpers (like emit metadata code) from 'tslib'. */
+    "importHelpers": true,
+    /* Specify library files to be included in the compilation. */
+    "lib": [
+      "esnext"
+    ],
+    /* Don't check syntax of library declaration files */
+    "skipLibCheck": true,
+    /* Strict Type-Checking Options */
+    "strict": true,
+    "noImplicitAny": false,
+    "noImplicitThis": false,
+    // Raise error on 'this' expressions with an implied 'any' type.
+    /* Additional Checks */
+    "noUnusedLocals": true,
+    "noUnusedParameters": false,
+    // some parameters may be there for documentation e.g. in map, filter
+    /* you can [import React from 'react'] instead of [import * as React from 'react'] */
+    "esModuleInterop": true,
+    /* this should be enabled by esModuleInterop but vscode cannot detect this properly */
+    "allowSyntheticDefaultImports": true,
+    /* try to prevent the terrible case sensitivity bug in imports on case-insensitive file systems*/
+    "forceConsistentCasingInFileNames": true
+  }
+}
