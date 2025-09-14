@@ -1,87 +1,92 @@
-import { Octokit } from "octokit";
-import XLSX from "xlsx";
-import { filterByMessageLength } from "./filters/filterByMessageLength";
-import { filterByAuthor } from "./filters/filterByAuthor";
-import { filterByProject } from "./filters/filterByProject";
-import { hasJavaChange } from "./filters/hasJavaChange";
+import {Octokit} from "octokit";
+import {filterByMessageLength} from "./filters/filterByMessageLength";
+import {filterByAuthor} from "./filters/filterByAuthor";
+import {filterByProject} from "./filters/filterByProject";
+import {Repository} from "./filters/types";
+import {modelTrainingCutOffs} from "./modelTrainingCutOffs";
+import fs from "node:fs";
+import {hasJavaChange} from "./filters/hasJavaChange";
 
 interface OutputCommit {
-  owner: string;
-  repo: string;
-  sha: string;
-  url: string;
+    owner: string;
+    repo: string;
+    sha: string;
+    url: string;
+    message: string;
+    refinedMessage?: string;
 }
 
+let store: {
+    visitedRepos: string[];
+    commits: Record<string, OutputCommit | null>
+} = {visitedRepos: [], commits: {}}
+
 const octokit = new Octokit({
-  auth: "",
+    auth: "",
 });
 
 const extract = async () => {
-  const { data: res } = await octokit.rest.search.repos({
-    q: "language:java",
-    sort: "stars",
-    order: "desc",
-    per_page: 100,
-  });
-  const repos = res.items;
+    const storeStr = fs.readFileSync("./store.json", "utf8");
+    if (storeStr) {
+        store = JSON.parse(storeStr);
+    }
 
-  const output: OutputCommit[] = [];
-  const validRepos = repos.filter(filterByProject);
-  let index = 1;
-  for (const repo of validRepos) {
-    const { data: commits } = await octokit.rest.repos.listCommits({
-      repo: repo.name,
-      owner: repo.owner?.login,
-      per_page: 100,
-    });
-
-    const directFilteredCommits = commits
-      .filter(filterByMessageLength)
-      .filter(filterByAuthor);
-
-    for (const commit of directFilteredCommits) {
-      const { data: commitDetail } = await octokit.rest.repos.getCommit({
-        repo: repo.name,
-        owner: repo.owner?.login,
-        ref: commit.sha,
-      });
-
-      if (hasJavaChange(commitDetail)) {
-        output.push({
-          owner: repo.owner?.login,
-          repo: repo.name,
-          sha: commit.sha,
-          url: commit.html_url,
+    let reposPageIndex = 1;
+    while (true) {
+        const {data: res} = await octokit.rest.search.repos({
+            q: "language:java",
+            sort: "stars",
+            order: "desc",
+            per_page: 50,
+            page: reposPageIndex++
         });
-      }
+        const repos = res.items as Repository[];
+
+        const validRepos = repos.filter(filterByProject).filter((repo) => !store.visitedRepos.includes(repo.name));
+        for (const repo of validRepos) {
+            let commitsPageIndex = 1;
+            while (true) {
+                const {data: commits} = await octokit.rest.repos.listCommits({
+                    repo: repo.name,
+                    owner: repo.owner!.login,
+                    since: modelTrainingCutOffs["qwen2.5-coder"],
+                    per_page: 50,
+                    page: commitsPageIndex++
+                });
+                if (commits.length === 0) {
+                    break
+                }
+
+                const validCommits = commits
+                    .filter(filterByMessageLength)
+                    .filter(filterByAuthor)
+                    .filter((commit) => !store.commits[commit.sha]);
+                for (const commit of validCommits) {
+                    const {data: commitDetail} = await octokit.rest.repos.getCommit({
+                        repo: repo.name,
+                        owner: repo.owner!.login,
+                        ref: commit.sha,
+                    });
+
+                    if (hasJavaChange(commitDetail)) {
+                        store.commits[commit.sha] = {
+                            owner: repo.owner!.login,
+                            repo: repo.name,
+                            sha: commit.sha,
+                            url: commit.html_url,
+                            message: commit.message
+                        }
+                    }
+                }
+            }
+
+            store.visitedRepos.push(repo.name);
+
+            fs.writeFileSync('./store.json', JSON.stringify(store))
+
+            console.log(repo.name, Object.keys(store.commits).length)
+        }
     }
-
-    console.log(`${index++}/${validRepos.length} - ${output.length}`);
-  }
-
-  return output;
 };
 
-const storeExcel = async (commits: OutputCommit[]) => {
-  const data: string[][] = [];
-
-  const keys = Object.keys(commits[0]);
-  data.push(keys);
-
-  for (const commit of commits) {
-    const row: string[] = [];
-
-    for (const key of keys) {
-      row.push(commit[key as keyof OutputCommit]);
-    }
-
-    data.push(row);
-  }
-
-  const workbook = XLSX.utils.book_new();
-  const worksheet = XLSX.utils.aoa_to_sheet(data);
-  XLSX.utils.book_append_sheet(workbook, worksheet, "Sheet1");
-  XLSX.writeFile(workbook, "output.xlsx");
-};
-
-extract().then((res) => storeExcel(res));
+extract();
