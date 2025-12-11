@@ -64,61 +64,153 @@
       "owner": "spring-projects",
       "repo": "spring-boot",
       "sha": "1b00d38fda76c12445625d94cfbe9105385bcf59",
-      "url": "https://github.com/spring-projects/spring-boot/commit/1b00d38fda76c12445625d94cfbe9105385bcf59"
+      "url": "https://github.com/spring-projects/spring-boot/commit/1b00d38fda76c12445625d94cfbe9105385bcf59",
+      "statements": {
+        "relevanet": [
+          "Only apply non-null Groovy Template properties.",
+          "When using the property defaults, this would leave the GroovyMarkupConfigurer bean with null values for autoIndentString, locale, and newLineString."
+        ],
+        "irrelevant": [
+          "Previously, properties were always applied even when they had a null value.",
+          "The null values could cause problems at runtime, for example an NPE when Groovy Templates tries to call toString on the null newLineString."
+        ]
+      }
     },
     "f28caee30d2ea48a0b19405dc604090e4b2f9b3d": {
       "owner": "spring-projects",
       "repo": "spring-boot",
       "sha": "f28caee30d2ea48a0b19405dc604090e4b2f9b3d",
-      "url": "https://github.com/spring-projects/spring-boot/commit/f28caee30d2ea48a0b19405dc604090e4b2f9b3d"
+      "url": "https://github.com/spring-projects/spring-boot/commit/f28caee30d2ea48a0b19405dc604090e4b2f9b3d",
+      "statements": {
+        "relevanet": [
+          "The count of remaining bytes is now initialized to the entry's uncompressed size.",
+          "The logic that closes the stream when remaining equals zero upon read or skip has been removed."
+        ],
+        "irrelevant": [
+          "The available() method previously returned 0 initially and then negative values once some data had been read.",
+          "The available() method should return a positive value initially and decrease as data is read.",
+          "The condition for closing the stream was not reached before because remaining would become negative as soon as any data was read or skipped.",
+          "With the correct initialization of remaining, the condition is now reached and it results in test failures due to premature closure.",
+          "The javadoc of read and skip does not require the stream to be closed when the end of file is reached."
+        ]
+      },
+      "note": "DELETED_CODE"
     },
     "aa3bed5e28470d7f02814e30bd570ec50a4f0c23": {
       "owner": "spring-projects",
       "repo": "spring-boot",
       "sha": "aa3bed5e28470d7f02814e30bd570ec50a4f0c23",
-      "url": "https://github.com/spring-projects/spring-boot/commit/aa3bed5e28470d7f02814e30bd570ec50a4f0c23"
+      "url": "https://github.com/spring-projects/spring-boot/commit/aa3bed5e28470d7f02814e30bd570ec50a4f0c23",
+      "statements": {
+        "relevanet": [
+          "GridFS is removed from MongoConnectionDetails.",
+          "Support for configuring GridFS through properties remains."
+        ],
+        "irrelevant": [
+          "GridFS is a concept specific to Spring Data MongoDB.",
+          "MongoConnectionDetails provides general details for connecting to MongoDB, with or without Spring Data MongoDB.",
+          "GridFS does not belong on MongoConnectionDetails."
+        ]
+      },
+      "note": "DELETED_CODE"
     },
     "3e41807e1d5561256424f5f2b098f74bcc706e40": {
       "owner": "spring-projects",
       "repo": "spring-boot",
       "sha": "3e41807e1d5561256424f5f2b098f74bcc706e40",
-      "url": "https://github.com/spring-projects/spring-boot/commit/3e41807e1d5561256424f5f2b098f74bcc706e40"
+      "url": "https://github.com/spring-projects/spring-boot/commit/3e41807e1d5561256424f5f2b098f74bcc706e40",
+      "statements": {
+        "relevanet": [
+          "This commit refactors ClassLoaderFiles to use a pre-computed, flattened map.",
+          "The ClassLoaderFilesResourcePatternResolver is updated to leverage this new, efficient structure:",
+          "getFile() and size() are improved from O(n) to O(1).",
+          "isDeleted() and getAdditionalResources() are improved from O(n*m) to O(m) by eliminating nested loops."
+        ],
+        "irrelevant": [
+          "The resource resolver in DevTools can cause performance degradation during application restarts in large projects.",
+          "Key methods like isDeleted() and getAdditionalResources() rely on nested loops, leading to O(n*m) complexity.",
+          "Data consistency is maintained across all operations.",
+          "This optimization significantly improves restart performance with a minimal memory footprint, while preserving the existing API and exception handling behavior."
+        ]
+      }
     },
     "16439ad6e364267033b8b157f3608b46c654dffa": {
       "owner": "spring-projects",
       "repo": "spring-boot",
       "sha": "16439ad6e364267033b8b157f3608b46c654dffa",
-      "url": "https://github.com/spring-projects/spring-boot/commit/16439ad6e364267033b8b157f3608b46c654dffa"
-    },
-    "6e82427ffe5233ce0d5ef7886cac33571a5b3704": {
-      "owner": "spring-projects",
-      "repo": "spring-boot",
-      "sha": "6e82427ffe5233ce0d5ef7886cac33571a5b3704",
-      "url": "https://github.com/spring-projects/spring-boot/commit/6e82427ffe5233ce0d5ef7886cac33571a5b3704"
+      "url": "https://github.com/spring-projects/spring-boot/commit/16439ad6e364267033b8b157f3608b46c654dffa",
+      "statements": {
+        "relevanet": [
+          "Spring Boot now detects configuration formats based on the presence of ConfigurationFactory implementations",
+          "Reflection logic now uses the classloader that loaded Log4j Core, rather than the one associated with the Spring Boot context",
+          "The lookup now prioritizes configuration files specified via properties over automatically discovered ones",
+          "Files named in the form log4j2<contextName>.<extension> are now also supported"
+        ],
+        "irrelevant": [
+          "Log4j Core 3 has undergone significant modularization and no longer uses optional parser dependencies",
+          "These changes ensure compatibility with Log4j Core 3 while preserving support for Log4j Core 2"
+        ]
+      }
     },
     "249620246f07f691c0dc79f2e219246b5f3a3340": {
       "owner": "spring-projects",
       "repo": "spring-boot",
       "sha": "249620246f07f691c0dc79f2e219246b5f3a3340",
-      "url": "https://github.com/spring-projects/spring-boot/commit/249620246f07f691c0dc79f2e219246b5f3a3340"
+      "url": "https://github.com/spring-projects/spring-boot/commit/249620246f07f691c0dc79f2e219246b5f3a3340",
+      "statements": {
+        "relevanet": [
+          "This commit improves the Hazelcast health indicator to fail if the Lifecycle manager indicates that the instance is no longer running."
+        ],
+        "irrelevant": [
+          "When the default Out-Of-Memory handler in Hazelcast detects a OOM error, and terminates Hazelcast, it does so on the node but not via the Hazelcast lifecycle manager.",
+          "The results is that it is still possible to successfully execute transactions in Hazelcast after this termination.",
+          "The health indicator should not report UP after Hazelcast has detected an OOM and terminated itself."
+        ]
+      }
     },
     "26372e78c628b99a66ee7c964cf12d915c95eb86": {
       "owner": "spring-projects",
       "repo": "spring-boot",
       "sha": "26372e78c628b99a66ee7c964cf12d915c95eb86",
-      "url": "https://github.com/spring-projects/spring-boot/commit/26372e78c628b99a66ee7c964cf12d915c95eb86"
+      "url": "https://github.com/spring-projects/spring-boot/commit/26372e78c628b99a66ee7c964cf12d915c95eb86",
+      "statements": {
+        "relevanet": ["Switch Logback's file logging charset to UTF-8"],
+        "irrelevant": [
+          "This commit aligns the file charset between Log4j2 and Logback",
+          "Prior to this commit, there was an inconsistency between the two: Log4j2 used UTF-8, while Logback used Charset.defaultCharset(), which is platform-dependent"
+        ]
+      }
     },
     "bb8e8849993980ae658046eaa786502f42ce63bf": {
       "owner": "spring-projects",
       "repo": "spring-boot",
       "sha": "bb8e8849993980ae658046eaa786502f42ce63bf",
-      "url": "https://github.com/spring-projects/spring-boot/commit/bb8e8849993980ae658046eaa786502f42ce63bf"
+      "url": "https://github.com/spring-projects/spring-boot/commit/bb8e8849993980ae658046eaa786502f42ce63bf",
+      "statements": {
+        "relevanet": [
+          "This PR rewrites ArchitectureCheckTests to support different sources and also adds functionality to configure the plugin.",
+          "With these changes, all tests now verify not only the checkArchitectureMain task but also checkArchitectureTest."
+        ],
+        "irrelevant": [
+          "Polish ArchitectureCheckTests.",
+          "Prior to this commit, it wasn't possible to write a test to verify that a specific ArchRule applied only to a specific SourceSet."
+        ]
+      }
     },
     "10b8a432910b6630d05ef4c03fbe88cc88b1983c": {
       "owner": "spring-projects",
       "repo": "spring-boot",
       "sha": "10b8a432910b6630d05ef4c03fbe88cc88b1983c",
-      "url": "https://github.com/spring-projects/spring-boot/commit/10b8a432910b6630d05ef4c03fbe88cc88b1983c"
+      "url": "https://github.com/spring-projects/spring-boot/commit/10b8a432910b6630d05ef4c03fbe88cc88b1983c",
+      "statements": {
+        "relevanet": [
+          "Update OutputCapture to fix a race condition that could occur due to the cache"
+        ],
+        "irrelevant": [
+          "Fix race condition in OutputCapture",
+          "Prior to this commit, when data was written whilst simultaneously being read, any subsequent reading of data might miss the last output"
+        ]
+      }
     },
     "b190e8077b6718cfd47188b0c20b0da7d45f764c": {
       "owner": "spring-projects",
