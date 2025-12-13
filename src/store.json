@@ -954,43 +954,98 @@
       "owner": "elastic",
       "repo": "elasticsearch",
       "sha": "d837e2ee9f334d42abdef8f2480ba4f2d3c82baf",
-      "url": "https://github.com/elastic/elasticsearch/commit/d837e2ee9f334d42abdef8f2480ba4f2d3c82baf"
-    },
-    "fa9e19e674c5aefd49433d0479beef302f5d375b": {
-      "owner": "elastic",
-      "repo": "elasticsearch",
-      "sha": "fa9e19e674c5aefd49433d0479beef302f5d375b",
-      "url": "https://github.com/elastic/elasticsearch/commit/fa9e19e674c5aefd49433d0479beef302f5d375b"
+      "url": "https://github.com/elastic/elasticsearch/commit/d837e2ee9f334d42abdef8f2480ba4f2d3c82baf",
+      "statements": {
+        "relevanet": [
+          "If patterned_text length exceeds limit put in stored fields",
+          "if a log is long we stored it as a stored field rather than a doc value",
+          "If a message is over 8kb, we put it in a stored field"
+        ],
+        "irrelevant": [
+          "SortedSetDocValues can only hold 32kb per item",
+          "This puts a length limit on the arguments and template sizes used by patterned_text",
+          "Still parse a prefix of the field to create a template_id for sorting"
+        ]
+      }
     },
     "d2c8dd1ed31b0e4094f99c7ed0591961819ad162": {
       "owner": "elastic",
       "repo": "elasticsearch",
       "sha": "d2c8dd1ed31b0e4094f99c7ed0591961819ad162",
-      "url": "https://github.com/elastic/elasticsearch/commit/d2c8dd1ed31b0e4094f99c7ed0591961819ad162"
+      "url": "https://github.com/elastic/elasticsearch/commit/d2c8dd1ed31b0e4094f99c7ed0591961819ad162",
+      "statements": {
+        "relevanet": [
+          "Standardizes how the Redact processor writes its `_ingest._redact._is_redacted` field to always create an intermediate object in the ingest metadata",
+          "PR also moves some commonly used ingest document test code to a place where it can be reused."
+        ],
+        "irrelevant": [
+          "This protects users from not being able to see the field if the processor is run in flexible access pattern mode."
+        ]
+      }
     },
     "abd8b324ee1890ff50e34db656d9ed1d3f3e62d4": {
       "owner": "elastic",
       "repo": "elasticsearch",
       "sha": "abd8b324ee1890ff50e34db656d9ed1d3f3e62d4",
-      "url": "https://github.com/elastic/elasticsearch/commit/abd8b324ee1890ff50e34db656d9ed1d3f3e62d4"
+      "url": "https://github.com/elastic/elasticsearch/commit/abd8b324ee1890ff50e34db656d9ed1d3f3e62d4",
+      "statements": {
+        "relevanet": [
+          "Remove AlibabaCloudSearch*Action classes",
+          "Migrate Alibaba Senders to SenderExecutableAction",
+          "Consolidate redundant GoogleDiscoveryEngineRateLimitServiceSettings and GoogleVertexAiEmbeddingsRateLimitServiceSettings interfaces with GoogleVertexAiRateLimitServiceSettings",
+          "Rename fields on CustomRequestManager.RateLimitGrouping and AlibabaCloudSearchRequestManager.RateLimitGrouping",
+          "Add tests for AlibabaCloudSearchActionCreator",
+          "Migrate existing tests to AlibabaCloudSearchCompletionRequestManagerTests"
+        ],
+        "irrelevant": []
+      },
+      "note": "DELETED_CODE"
     },
     "6884dbb9b6a98170a1d041f5596070496b107783": {
       "owner": "elastic",
       "repo": "elasticsearch",
       "sha": "6884dbb9b6a98170a1d041f5596070496b107783",
-      "url": "https://github.com/elastic/elasticsearch/commit/6884dbb9b6a98170a1d041f5596070496b107783"
+      "url": "https://github.com/elastic/elasticsearch/commit/6884dbb9b6a98170a1d041f5596070496b107783",
+      "statements": {
+        "relevanet": [
+          "Reserve square bracket syntax for ingest document flexible field access pattern",
+          "Adds validation to field path parsing to ensure that no square brackets are used in the path when flexible mode is enabled"
+        ],
+        "irrelevant": [
+          "We plan to introduce array indexing syntax to flexible mode in the future",
+          "To ensure that users do not make a habit of using this reserved syntax going forward, we are reserving it to ensure that it remains unused until it is supported"
+        ]
+      }
     },
     "9b41320ce6c61424f9f80c41779c9db70a9fdebc": {
       "owner": "elastic",
       "repo": "elasticsearch",
       "sha": "9b41320ce6c61424f9f80c41779c9db70a9fdebc",
-      "url": "https://github.com/elastic/elasticsearch/commit/9b41320ce6c61424f9f80c41779c9db70a9fdebc"
+      "url": "https://github.com/elastic/elasticsearch/commit/9b41320ce6c61424f9f80c41779c9db70a9fdebc",
+      "statements": {
+        "relevanet": [
+          "Grant manage_threads to java.desktop for Tika",
+          "Produce a PolicyScope for excluded system modules"
+        ],
+        "irrelevant": []
+      }
     },
     "7e8a69d63e2149b73ca4201a8ca77185db9a62fe": {
       "owner": "elastic",
       "repo": "elasticsearch",
       "sha": "7e8a69d63e2149b73ca4201a8ca77185db9a62fe",
-      "url": "https://github.com/elastic/elasticsearch/commit/7e8a69d63e2149b73ca4201a8ca77185db9a62fe"
+      "url": "https://github.com/elastic/elasticsearch/commit/7e8a69d63e2149b73ca4201a8ca77185db9a62fe",
+      "statements": {
+        "relevanet": [
+          "The construction of the service is raised out of the action module.",
+          "The instance is bound."
+        ],
+        "irrelevant": [
+          "The MetadataIndexTemplateService used to be created as part of initializing the reserved project state handlers.",
+          "The instance was never bound.",
+          "A second instance was being created in the injector."
+        ]
+      }
     },
     "5995b0ea9d3fb413f6ce0ff4a063aa7f8f49b287": {
       "owner": "elastic",
