@@ -216,43 +216,105 @@
       "owner": "spring-projects",
       "repo": "spring-boot",
       "sha": "b190e8077b6718cfd47188b0c20b0da7d45f764c",
-      "url": "https://github.com/spring-projects/spring-boot/commit/b190e8077b6718cfd47188b0c20b0da7d45f764c"
+      "url": "https://github.com/spring-projects/spring-boot/commit/b190e8077b6718cfd47188b0c20b0da7d45f764c",
+      "statements": {
+        "relevanet": [
+          "Consistently detect the default value of a property.",
+          "Rather than using a name, the resolver now provides the field itself.",
+          "This also adds a dedicated test for the use of with Lombok."
+        ],
+        "irrelevant": [
+          "This is a follow-up of where detecting the default value suffers from the same problem."
+        ]
+      }
     },
     "1014fc2106455b99d573299e505d1a97863933ee": {
       "owner": "spring-projects",
       "repo": "spring-boot",
       "sha": "1014fc2106455b99d573299e505d1a97863933ee",
-      "url": "https://github.com/spring-projects/spring-boot/commit/1014fc2106455b99d573299e505d1a97863933ee"
+      "url": "https://github.com/spring-projects/spring-boot/commit/1014fc2106455b99d573299e505d1a97863933ee",
+      "statements": {
+        "relevanet": [
+          "Stop using custom name for elements resolution.",
+          "This commit keeps the custom name, but uses the property name as for other cases."
+        ],
+        "irrelevant": [
+          "Previously, when a property was customized with,, getter, setter, field, and record component were looked up using the custom name, rather than the property name.",
+          "This lead to missing information as the custom name is not meant to match the field name, for instance."
+        ]
+      }
     },
     "e12bb7b5de2ae719e6f692f05a02fee8d7fef8da": {
       "owner": "spring-projects",
       "repo": "spring-boot",
       "sha": "e12bb7b5de2ae719e6f692f05a02fee8d7fef8da",
-      "url": "https://github.com/spring-projects/spring-boot/commit/e12bb7b5de2ae719e6f692f05a02fee8d7fef8da"
+      "url": "https://github.com/spring-projects/spring-boot/commit/e12bb7b5de2ae719e6f692f05a02fee8d7fef8da",
+      "statements": {
+        "relevanet": [
+          "This commit updates the library-specific support to use the maximum (most permissive) upgrade policy so that possible upgrades are not hidden by a less permissive library-specific policy."
+        ],
+        "irrelevant": [
+          "Library upgrade policy should not reduce bom's policy.",
+          "Library-specific upgrade policies were added to allow a dependency to have a less strict upgrade policy, for example so that a new minor upgrade could be applied in a maintenance release.",
+          "As currently implemented, a library-specific policy that's more restrictive than the bom's policy may result in a possible upgrade being missed."
+        ]
+      }
     },
     "05c877d61c97e5c6f62c632cb54aea86f59f5095": {
       "owner": "spring-projects",
       "repo": "spring-boot",
       "sha": "05c877d61c97e5c6f62c632cb54aea86f59f5095",
-      "url": "https://github.com/spring-projects/spring-boot/commit/05c877d61c97e5c6f62c632cb54aea86f59f5095"
-    },
-    "94215d3fdc7bcd1dde12050e0f019999d1b211dd": {
-      "owner": "spring-projects",
-      "repo": "spring-boot",
-      "sha": "94215d3fdc7bcd1dde12050e0f019999d1b211dd",
-      "url": "https://github.com/spring-projects/spring-boot/commit/94215d3fdc7bcd1dde12050e0f019999d1b211dd"
+      "url": "https://github.com/spring-projects/spring-boot/commit/05c877d61c97e5c6f62c632cb54aea86f59f5095",
+      "statements": {
+        "relevanet": [
+          "Only apply path to default PathPatternRequestMatcher.Builder",
+          "This commit changes the bean post-processor so that it will only apply to a bean named pathPatternRequestMatcherBuilder"
+        ],
+        "irrelevant": [
+          "Prior to this commit, if the user defined a custom PathPatternRequestMatcher.Builder, security auto-configuration would still set its base path to match the dispatcher servlet path",
+          "We need to give the user more control in this situation",
+          "If the user has defined a custom builder bean it should have a name other than pathPatternRequestMatcherBuilder",
+          "This different name is required to prevent a clash with the bean that's defined by Security's AuthorizationConfiguration",
+          "By using a different name (which is necessary unless overriding is enabled) the user can take complete control of the path pattern request matcher builder"
+        ]
+      }
     },
     "08cc62a6b602506425da3829ef25e6278a86b00e": {
       "owner": "spring-projects",
       "repo": "spring-boot",
       "sha": "08cc62a6b602506425da3829ef25e6278a86b00e",
-      "url": "https://github.com/spring-projects/spring-boot/commit/08cc62a6b602506425da3829ef25e6278a86b00e"
+      "url": "https://github.com/spring-projects/spring-boot/commit/08cc62a6b602506425da3829ef25e6278a86b00e",
+      "statements": {
+        "relevanet": [
+          "The string based JarFileUrlKey and cache is replaced with a simple key built directly from URL components.",
+          "The change should allow cache lookups to remain fast.",
+          "The change removes any URLStreamHandler.getHostAddress calls."
+        ],
+        "irrelevant": [
+          "The commit simplifies JarFileUrlKey to prevent issues with Cortex XDR agent.",
+          "Prior to this commit, it was assumed that using the URL directly as a cache key was safe if it had an empty or null host.",
+          "This assumption is incorrect when the Palo Alto Network Cortex XDR agent is present.",
+          "The Cortex XDR agent intercepts calls to getHostAddress and performs a DNS lookup.",
+          "The JDK code does not always perform a DNS lookup when getHostAddress is called."
+        ]
+      },
+      "note": "CLASSIFICATION: relevant[1]"
     },
     "1ed1757ba3decf89f562bb430b1dd647900e5afd": {
       "owner": "spring-projects",
       "repo": "spring-boot",
       "sha": "1ed1757ba3decf89f562bb430b1dd647900e5afd",
-      "url": "https://github.com/spring-projects/spring-boot/commit/1ed1757ba3decf89f562bb430b1dd647900e5afd"
+      "url": "https://github.com/spring-projects/spring-boot/commit/1ed1757ba3decf89f562bb430b1dd647900e5afd",
+      "statements": {
+        "relevanet": [
+          "Ensure eclipse classpath excludes binary output folders"
+        ],
+        "irrelevant": [
+          "Update EclipseConventions so that classpath whenMerged changes are applied via JavaBasePlugin",
+          "Without this change, the whenMerged item is added, but then EclipsePlugin.configureEclipseClasspath is called from a project.getPlugins().withType(JavaBasePlugin.class, ... call",
+          "Using a nested call appears to fix the issue, probably because it now runs after `configureEclipseClasspath`."
+        ]
+      }
     },
     "efca113f07f5149b18c6eaf2cc183c410cfed0e0": {
       "owner": "spring-projects",
