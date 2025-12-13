@@ -1113,61 +1113,147 @@
       "owner": "elastic",
       "repo": "elasticsearch",
       "sha": "5995b0ea9d3fb413f6ce0ff4a063aa7f8f49b287",
-      "url": "https://github.com/elastic/elasticsearch/commit/5995b0ea9d3fb413f6ce0ff4a063aa7f8f49b287"
-    },
-    "f8c6364f3f6454f05e3d9c502d62d932951e1239": {
-      "owner": "elastic",
-      "repo": "elasticsearch",
-      "sha": "f8c6364f3f6454f05e3d9c502d62d932951e1239",
-      "url": "https://github.com/elastic/elasticsearch/commit/f8c6364f3f6454f05e3d9c502d62d932951e1239"
+      "url": "https://github.com/elastic/elasticsearch/commit/5995b0ea9d3fb413f6ce0ff4a063aa7f8f49b287",
+      "statements": {
+        "relevanet": [
+          "Making calls to Expression#references() reuse the reference set returned by its child when there is only one child"
+        ],
+        "irrelevant": [
+          "This should save on many AttributeSets, especially in degenerate plans that have a zillion EVALs",
+          "Things like Alias will always be able to reuse the child references. So will unary functions And probably other things",
+          "This does require that folks treat the references() as immutable"
+        ]
+      }
     },
     "bbfa270e3bcd94bcdc06958dca8da1db84d5ef8c": {
       "owner": "elastic",
       "repo": "elasticsearch",
       "sha": "bbfa270e3bcd94bcdc06958dca8da1db84d5ef8c",
-      "url": "https://github.com/elastic/elasticsearch/commit/bbfa270e3bcd94bcdc06958dca8da1db84d5ef8c"
+      "url": "https://github.com/elastic/elasticsearch/commit/bbfa270e3bcd94bcdc06958dca8da1db84d5ef8c",
+      "statements": {
+        "relevanet": [
+          "The commit splits the put lifecycle operation logic into a metadata service.",
+          "The logic for updating the cluster state when adding an ILM policy is split into its own metadata service object."
+        ],
+        "irrelevant": [
+          "The metadata service object can now be called directly instead of requiring calls to the TransportPutLifecycleAction.",
+          "The new metadata service allows it to be reused in other places."
+        ]
+      }
     },
     "276958446334c19e880c0ff05e93be72a0e7152c": {
       "owner": "elastic",
       "repo": "elasticsearch",
       "sha": "276958446334c19e880c0ff05e93be72a0e7152c",
-      "url": "https://github.com/elastic/elasticsearch/commit/276958446334c19e880c0ff05e93be72a0e7152c"
+      "url": "https://github.com/elastic/elasticsearch/commit/276958446334c19e880c0ff05e93be72a0e7152c",
+      "statements": {
+        "relevanet": [
+          "Build functionName on the fly",
+          "This removes a member variable we initialized to the UPPER CASE name of the class in every function"
+        ],
+        "irrelevant": [
+          "This was costing us a couple dozen bytes for every function invocation in the plan in ESQL",
+          "Fine if there are 10 functions, annoying if there are thousands"
+        ]
+      }
     },
     "5051a5b06830a3b18312403ba1fc62af830d8d1a": {
       "owner": "elastic",
       "repo": "elasticsearch",
       "sha": "5051a5b06830a3b18312403ba1fc62af830d8d1a",
-      "url": "https://github.com/elastic/elasticsearch/commit/5051a5b06830a3b18312403ba1fc62af830d8d1a"
+      "url": "https://github.com/elastic/elasticsearch/commit/5051a5b06830a3b18312403ba1fc62af830d8d1a",
+      "statements": {
+        "relevanet": [
+          "Accept ProjectMetadata in RestoreSnapshotStateTask.updater",
+          "Refactor the updater consumer to accept a project builder"
+        ],
+        "irrelevant": [
+          "Refactor Metadata.Builder to hold a map of built ProjectMetadata objects instead of their builders",
+          "This avoids us having to build an intermediate project, add it to the metadata builder, then convert the project back to a builder and build it again."
+        ]
+      }
     },
     "e046429209b2dae1d5e50d6d28b3143ba36c47fb": {
       "owner": "elastic",
       "repo": "elasticsearch",
       "sha": "e046429209b2dae1d5e50d6d28b3143ba36c47fb",
-      "url": "https://github.com/elastic/elasticsearch/commit/e046429209b2dae1d5e50d6d28b3143ba36c47fb"
+      "url": "https://github.com/elastic/elasticsearch/commit/e046429209b2dae1d5e50d6d28b3143ba36c47fb",
+      "statements": {
+        "relevanet": [
+          "Fix single project GetClusterState API response for multiproject",
+          "This PR makes the single project GetClusterState API response for MP clusters match the non-MP format"
+        ],
+        "irrelevant": [
+          "As it was noted in #132332 we have a general principle that API output for a single project should be the same regardless of whether the cluster is non-MP or MP",
+          "However, the reserved metadata merge logic was never properly implemented to support this",
+          "As a result of changes in that PR, response formats diverged"
+        ]
+      }
     },
     "7427efd0bd64c809f924119a47792267b9cf2193": {
       "owner": "elastic",
       "repo": "elasticsearch",
       "sha": "7427efd0bd64c809f924119a47792267b9cf2193",
-      "url": "https://github.com/elastic/elasticsearch/commit/7427efd0bd64c809f924119a47792267b9cf2193"
+      "url": "https://github.com/elastic/elasticsearch/commit/7427efd0bd64c809f924119a47792267b9cf2193",
+      "statements": {
+        "relevanet": [
+          "Small speed up in MultiClusterSpecIT",
+          "Speeds up MultiClusterSpecIT a tiny bit by running things like index creation in parallel in both clusters."
+        ],
+        "irrelevant": [
+          "Drops the runtime of a single test from 33 seconds to 27.5 for me locally.",
+          "We can certainly speed this up more by parallelizing index creation and/or creating only the index we need."
+        ]
+      }
     },
     "5ea0f5d1d7f90bef46d54e56ca2c947d660e1953": {
       "owner": "elastic",
       "repo": "elasticsearch",
       "sha": "5ea0f5d1d7f90bef46d54e56ca2c947d660e1953",
-      "url": "https://github.com/elastic/elasticsearch/commit/5ea0f5d1d7f90bef46d54e56ca2c947d660e1953"
+      "url": "https://github.com/elastic/elasticsearch/commit/5ea0f5d1d7f90bef46d54e56ca2c947d660e1953",
+      "statements": {
+        "relevanet": [
+          "Add LinkedProjectConfigService with ClusterSettings implementation",
+          "Adds a new interface LinkedProjectConfigService for registering LinkedProjectConfigListener instances to receive linked project configuration updates",
+          "This change introduces an abstract base class and a ClusterSettings based concrete class that provides the same functionality that was previously implemented in RemoteClusterAware and RemoteClusterService",
+          "Subclasses of RemoteClusterAware have been adjusted to receive LinkedProjectConfig updates instead of Settings updates"
+        ],
+        "irrelevant": [
+          "These changes allow for other linked project config implementations to be used in the system, freeing consumers of the updates from the details of the update mechanism used"
+        ]
+      }
     },
     "53ef68f056ec62fe2662ca23cd0d6401051665d3": {
       "owner": "elastic",
       "repo": "elasticsearch",
       "sha": "53ef68f056ec62fe2662ca23cd0d6401051665d3",
-      "url": "https://github.com/elastic/elasticsearch/commit/53ef68f056ec62fe2662ca23cd0d6401051665d3"
+      "url": "https://github.com/elastic/elasticsearch/commit/53ef68f056ec62fe2662ca23cd0d6401051665d3",
+      "statements": {
+        "relevanet": [
+          "This refactoring is meant to be purely structural, with no functional changes",
+          "Introduce RemoteClusterAuthenticationService - extracted based on the existing CrossClusterAccessAuthenticationService",
+          "Introduce RemoteClusterTransportInterceptor - which aims to abstract and move all cross-cluster access logic from SecurityServerTransportInterceptor"
+        ],
+        "irrelevant": [
+          "This is prerequisite for making remote cluster security logic pluggable"
+        ]
+      }
     },
     "f7e38b7041df2aa7fef5c25b1cd6ec833c4c07f5": {
       "owner": "elastic",
       "repo": "elasticsearch",
       "sha": "f7e38b7041df2aa7fef5c25b1cd6ec833c4c07f5",
-      "url": "https://github.com/elastic/elasticsearch/commit/f7e38b7041df2aa7fef5c25b1cd6ec833c4c07f5"
+      "url": "https://github.com/elastic/elasticsearch/commit/f7e38b7041df2aa7fef5c25b1cd6ec833c4c07f5",
+      "statements": {
+        "relevanet": [
+          "Allow configure timeout in REST tests from sys props.",
+          "This change allows configuring the client socket timeout from a system property."
+        ],
+        "irrelevant": [
+          "When debugging REST tests with a remote debugger, we often need to manually increase the client socket timeout in the code.",
+          "This allows us to spend more time in the debugger without the query failing due to a timeout."
+        ]
+      }
     },
     "2149f15fdf179ad8e9acd9dc7e5341e33fd88288": {
       "owner": "elastic",
