@@ -8789,115 +8789,241 @@
       "owner": "NationalSecurityAgency",
       "repo": "ghidra",
       "sha": "e2fa4aaa7b6f595bb17c02da69a8157b072fdee2",
-      "url": "https://github.com/NationalSecurityAgency/ghidra/commit/e2fa4aaa7b6f595bb17c02da69a8157b072fdee2"
-    },
-    "c9ab679e539f3969ce7d495025dd24546ceed00d": {
-      "owner": "NationalSecurityAgency",
-      "repo": "ghidra",
-      "sha": "c9ab679e539f3969ce7d495025dd24546ceed00d",
-      "url": "https://github.com/NationalSecurityAgency/ghidra/commit/c9ab679e539f3969ce7d495025dd24546ceed00d"
+      "url": "https://github.com/NationalSecurityAgency/ghidra/commit/e2fa4aaa7b6f595bb17c02da69a8157b072fdee2",
+      "statements": {
+        "relevanet": [
+          "Add support for ignoring atomic_type",
+          "Add some checking for missing source file names"
+        ],
+        "irrelevant": [
+          "Apple Macho binaries truncate section names to 16 chars",
+          "DWARF 5 introduced a section (debug_str_offsets) that has a name longer than 16"
+        ]
+      }
     },
     "c7336e8d192b888307e99fe2a6ef82b2d60ec78d": {
       "owner": "NationalSecurityAgency",
       "repo": "ghidra",
       "sha": "c7336e8d192b888307e99fe2a6ef82b2d60ec78d",
-      "url": "https://github.com/NationalSecurityAgency/ghidra/commit/c7336e8d192b888307e99fe2a6ef82b2d60ec78d"
-    },
-    "0fac9cc4918ef38c7b7603be78e4215e329af467": {
-      "owner": "NationalSecurityAgency",
-      "repo": "ghidra",
-      "sha": "0fac9cc4918ef38c7b7603be78e4215e329af467",
-      "url": "https://github.com/NationalSecurityAgency/ghidra/commit/0fac9cc4918ef38c7b7603be78e4215e329af467"
+      "url": "https://github.com/NationalSecurityAgency/ghidra/commit/c7336e8d192b888307e99fe2a6ef82b2d60ec78d",
+      "statements": {
+        "relevanet": [
+          "This commit checks that these objects are not null before configuring them."
+        ],
+        "irrelevant": [
+          "The Memory Map plugin configures the maximum and minimum size of some of the columns.",
+          "This initialization does not take into account that a user is able to hide columns, which results in a null pointer exception."
+        ]
+      }
     },
     "20739feef09760532ae1231fad7aeb9e090cfe02": {
       "owner": "NationalSecurityAgency",
       "repo": "ghidra",
       "sha": "20739feef09760532ae1231fad7aeb9e090cfe02",
-      "url": "https://github.com/NationalSecurityAgency/ghidra/commit/20739feef09760532ae1231fad7aeb9e090cfe02"
+      "url": "https://github.com/NationalSecurityAgency/ghidra/commit/20739feef09760532ae1231fad7aeb9e090cfe02",
+      "statements": {
+        "relevanet": [
+          "Don't unnecessarily convert backslashes into fwd slashes for FSRLs.",
+          "Add 'My Computer' location to FSB Browser",
+          "Tweaked FSB icons for file system nodes in the tree and for each FSB component window"
+        ],
+        "irrelevant": ["exercising other FSRL handling issues"]
+      }
     },
     "047f006c55e8e06d0420a8fc6273edca7ce7ddd8": {
       "owner": "NationalSecurityAgency",
       "repo": "ghidra",
       "sha": "047f006c55e8e06d0420a8fc6273edca7ce7ddd8",
-      "url": "https://github.com/NationalSecurityAgency/ghidra/commit/047f006c55e8e06d0420a8fc6273edca7ce7ddd8"
+      "url": "https://github.com/NationalSecurityAgency/ghidra/commit/047f006c55e8e06d0420a8fc6273edca7ce7ddd8",
+      "statements": {
+        "relevanet": [
+          "Added several more Keil-specific record formats and changed naming scheme for Keil-specifics.",
+          "Change LibModName to LibModNames",
+          "Restored accidentally deleted getRecordName, grouped all new record types together",
+          "Make all the Keil-specific symbolic names start with \"Keil\"",
+          "Fixed typo/accidental change of case."
+        ],
+        "irrelevant": []
+      },
+      "note": "UPDATED_CODE"
     },
     "69292c546fb93a14948bce5e3bf82745d71a89fc": {
       "owner": "NationalSecurityAgency",
       "repo": "ghidra",
       "sha": "69292c546fb93a14948bce5e3bf82745d71a89fc",
-      "url": "https://github.com/NationalSecurityAgency/ghidra/commit/69292c546fb93a14948bce5e3bf82745d71a89fc"
+      "url": "https://github.com/NationalSecurityAgency/ghidra/commit/69292c546fb93a14948bce5e3bf82745d71a89fc",
+      "statements": {
+        "relevanet": [
+          "Fix assembling instructions with unknown/don't care context bits.",
+          "After this change unspecified bits are kept as unspecified through the assembly process possibly providing more valid assembly results."
+        ],
+        "irrelevant": [
+          "Without this change, if unspecified context bits are provided to the assembler they are defaulted to 0 and the resulting context is used to filter for valid assembly instructions."
+        ]
+      }
     },
     "8892384b716ee83a4ffca328d573f4675fa5c5d7": {
       "owner": "NationalSecurityAgency",
       "repo": "ghidra",
       "sha": "8892384b716ee83a4ffca328d573f4675fa5c5d7",
-      "url": "https://github.com/NationalSecurityAgency/ghidra/commit/8892384b716ee83a4ffca328d573f4675fa5c5d7"
-    },
-    "23ae8364b17feea13b92a8da4b594d2b8c5dd1f6": {
-      "owner": "NationalSecurityAgency",
-      "repo": "ghidra",
-      "sha": "23ae8364b17feea13b92a8da4b594d2b8c5dd1f6",
-      "url": "https://github.com/NationalSecurityAgency/ghidra/commit/23ae8364b17feea13b92a8da4b594d2b8c5dd1f6"
+      "url": "https://github.com/NationalSecurityAgency/ghidra/commit/8892384b716ee83a4ffca328d573f4675fa5c5d7",
+      "statements": {
+        "relevanet": [
+          "removed incorrect pdb secondary symbols causing rtti script to blow up",
+          "updated to remove known functions from other class possible const/dest lists",
+          "updated to remove ticks from pdb rtti instead of just removing the symbols and recreating",
+          "updated script to handle for parent case now that it is getting them"
+        ],
+        "irrelevant": [
+          "fixed rttiUtil issue resulting from previous pdb anon fix",
+          "fixed the missing _forParent symbols"
+        ]
+      },
+      "note": "CLASSIFICATION: irrelevant[1]"
     },
     "cab8ed6068aaa8dcab4c72c82c6009c99b6dfc5f": {
       "owner": "NationalSecurityAgency",
       "repo": "ghidra",
       "sha": "cab8ed6068aaa8dcab4c72c82c6009c99b6dfc5f",
-      "url": "https://github.com/NationalSecurityAgency/ghidra/commit/cab8ed6068aaa8dcab4c72c82c6009c99b6dfc5f"
+      "url": "https://github.com/NationalSecurityAgency/ghidra/commit/cab8ed6068aaa8dcab4c72c82c6009c99b6dfc5f",
+      "statements": {
+        "relevanet": [
+          "This commit makes the vfunctions list and the vftable address to be stored in a map, making the vfunctions list and create happen only once."
+        ],
+        "irrelevant": [
+          "The vfunctions are collected and compared in two loops against all the recoveredClasses, this takes time if the binary have many classes."
+        ]
+      }
     },
     "d8ae17212505da6cbd888f49edc4b7978ef9950e": {
       "owner": "NationalSecurityAgency",
       "repo": "ghidra",
       "sha": "d8ae17212505da6cbd888f49edc4b7978ef9950e",
-      "url": "https://github.com/NationalSecurityAgency/ghidra/commit/d8ae17212505da6cbd888f49edc4b7978ef9950e"
+      "url": "https://github.com/NationalSecurityAgency/ghidra/commit/d8ae17212505da6cbd888f49edc4b7978ef9950e",
+      "statements": {
+        "relevanet": ["Fix parsing of recoverable malformed datatypes"],
+        "irrelevant": [
+          "MSVC sometimes generates pdbs where there is an implied datatype such as pointers * or arrays [16]",
+          "Ghidra has undefined to cover this use case",
+          "This avoids an error on PDB import which would have a cryptic message: Symbol list must contain at least one symbol name! without any info on what caused the issue"
+        ]
+      }
     },
     "e3b75fe9f70852a07e9b68765a09a648f4a1279b": {
       "owner": "NationalSecurityAgency",
       "repo": "ghidra",
       "sha": "e3b75fe9f70852a07e9b68765a09a648f4a1279b",
-      "url": "https://github.com/NationalSecurityAgency/ghidra/commit/e3b75fe9f70852a07e9b68765a09a648f4a1279b"
+      "url": "https://github.com/NationalSecurityAgency/ghidra/commit/e3b75fe9f70852a07e9b68765a09a648f4a1279b",
+      "statements": {
+        "relevanet": [
+          "Refactor the old DWARF line code used by the line analyzer.",
+          "Fix v4 location list reading when there was an empty range entry.",
+          "Defer applying the ELF program address fixup value until a DWARF address(held in a long) is converted into a Ghidra address.",
+          "Fix v5 location list reading - add missing DW_LLE_default_location impl."
+        ],
+        "irrelevant": []
+      }
     },
     "2eb58ae839d41dea7526c370b7911690753d90a9": {
       "owner": "NationalSecurityAgency",
       "repo": "ghidra",
       "sha": "2eb58ae839d41dea7526c370b7911690753d90a9",
-      "url": "https://github.com/NationalSecurityAgency/ghidra/commit/2eb58ae839d41dea7526c370b7911690753d90a9"
+      "url": "https://github.com/NationalSecurityAgency/ghidra/commit/2eb58ae839d41dea7526c370b7911690753d90a9",
+      "statements": {
+        "relevanet": [
+          "Fix Mach-O import when no segment contains the header",
+          "With this change, setupHeaderAddr ignores empty segments"
+        ],
+        "irrelevant": [
+          "Certain Mach-O files don't have a segment that contains the header",
+          "MachoProgramBuilder.setupHeaderAddr is supposed to create an area in the OTHER address space for the header",
+          "setupHeaderAddr keeps track of the lowest file offset for each segment that it looks at to find the one with the lowest start address",
+          "It then adds the HEADER memory block as 0 to the lowest start address",
+          "Before, if there were any segments that were empty, then setupHeaderAddr would mistakenly set the lowest start address to 0 instead of ignoring the segment",
+          "This would cause MemoryMapDB.checkFileBytesRange to throw an IllegalArgumentException",
+          "This change passes all of the unit and integration tests",
+          "There are no explicit tests for MachoProgramBuilder"
+        ]
+      }
     },
     "0e3e34bee0c5b452b51c6ff6184e071a73ee2d40": {
       "owner": "spring-projects",
       "repo": "spring-framework",
       "sha": "0e3e34bee0c5b452b51c6ff6184e071a73ee2d40",
-      "url": "https://github.com/spring-projects/spring-framework/commit/0e3e34bee0c5b452b51c6ff6184e071a73ee2d40"
-    },
-    "a053e6594c016f9fcc6e7d5c0f6b00f703249386": {
-      "owner": "spring-projects",
-      "repo": "spring-framework",
-      "sha": "a053e6594c016f9fcc6e7d5c0f6b00f703249386",
-      "url": "https://github.com/spring-projects/spring-framework/commit/a053e6594c016f9fcc6e7d5c0f6b00f703249386"
+      "url": "https://github.com/spring-projects/spring-framework/commit/0e3e34bee0c5b452b51c6ff6184e071a73ee2d40",
+      "statements": {
+        "relevanet": [
+          "Find annotations on parameters in overridden non-public methods",
+          "The search algorithm in AnnotatedMethod has been revised to consider all non-final declared methods as potential override candidates."
+        ],
+        "irrelevant": [
+          "Annotations were not found on parameters in an overridden method unless the method was public.",
+          "The search algorithm in AnnotatedMethod did not consider a protected or package-private method in a superclass to be a potential override candidate.",
+          "This affects parameter annotation searches in spring-messaging, spring-webmvc, spring-webflux, and any other components that use or extend AnnotatedMethod.",
+          "The revision aligns the search logic in AnnotatedMethod with the search logic in AnnotationsScanner for the MergedAnnotations API."
+        ]
+      }
     },
     "1786eb2901d6ea8c9eec286f1aaab72020e0ab2d": {
       "owner": "spring-projects",
       "repo": "spring-framework",
       "sha": "1786eb2901d6ea8c9eec286f1aaab72020e0ab2d",
-      "url": "https://github.com/spring-projects/spring-framework/commit/1786eb2901d6ea8c9eec286f1aaab72020e0ab2d"
+      "url": "https://github.com/spring-projects/spring-framework/commit/1786eb2901d6ea8c9eec286f1aaab72020e0ab2d",
+      "statements": {
+        "relevanet": [
+          "Introduce RetryInterruptedException to address off-by-one error",
+          "This commit introduces an internal RetryInterruptedException which accounts for this off-by-one error"
+        ],
+        "irrelevant": [
+          "Prior to this commit, a RetryException thrown for an InterruptedException returned the wrong value from getRetryCount()",
+          "The count was one more than it should have been, since the suppressed exception list contains the initial exception as well as all retry attempt exceptions"
+        ]
+      }
     },
     "b2cdfbadf1698327cd8f5277290999b4f976d13d": {
       "owner": "spring-projects",
       "repo": "spring-framework",
       "sha": "b2cdfbadf1698327cd8f5277290999b4f976d13d",
-      "url": "https://github.com/spring-projects/spring-framework/commit/b2cdfbadf1698327cd8f5277290999b4f976d13d"
+      "url": "https://github.com/spring-projects/spring-framework/commit/b2cdfbadf1698327cd8f5277290999b4f976d13d",
+      "statements": {
+        "relevanet": [
+          "This commit introduces a new onRetryPolicyInterruption() callback in RetryListener to notify the registered RetryListener."
+        ],
+        "irrelevant": [
+          "In RetryTemplate, an InterruptedException while sleeping for the configured back-off duration throws a RetryException with the InterruptedException as the cause.",
+          "Prior to this commit, the RetryException propagated to the caller without notifying the registered RetryListener."
+        ]
+      }
     },
     "7484b9c49173a2da9d22ea00f2298ab4ec394e37": {
       "owner": "spring-projects",
       "repo": "spring-framework",
       "sha": "7484b9c49173a2da9d22ea00f2298ab4ec394e37",
-      "url": "https://github.com/spring-projects/spring-framework/commit/7484b9c49173a2da9d22ea00f2298ab4ec394e37"
+      "url": "https://github.com/spring-projects/spring-framework/commit/7484b9c49173a2da9d22ea00f2298ab4ec394e37",
+      "statements": {
+        "relevanet": [
+          "this commit includes exceptions for previous attempts in the RetryException thrown for an InterruptedException as well."
+        ],
+        "irrelevant": [
+          "In RetryTemplate, if we encounter an InterruptedException while sleeping for the configured back-off duration, we throw a RetryException with the InterruptedException as the cause.",
+          "However, in contrast to the specification for RetryException, we do not currently include the exceptions for previous retry attempts as suppressed exceptions in the RetryException which is thrown in such scenarios."
+        ]
+      }
     },
     "7b2730c271eaaddf3def5165653299d438b63b2b": {
       "owner": "spring-projects",
       "repo": "spring-framework",
       "sha": "7b2730c271eaaddf3def5165653299d438b63b2b",
-      "url": "https://github.com/spring-projects/spring-framework/commit/7b2730c271eaaddf3def5165653299d438b63b2b"
+      "url": "https://github.com/spring-projects/spring-framework/commit/7b2730c271eaaddf3def5165653299d438b63b2b",
+      "statements": {
+        "relevanet": [
+          "Include current exception in log message for failed retry attempt",
+          "We now include the current exception in log messages for subsequent retry attempts as well."
+        ],
+        "irrelevant": [
+          "Prior to this commit, we included the initial exception in the log message for the initial invocation of a retryable operation; however, we did not include the current exception in the log message for subsequent attempts."
+        ]
+      }
     },
     "ca62119cb33e7805a080984b60902a4f0895d707": {
       "owner": "spring-projects",
